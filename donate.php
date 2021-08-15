@@ -16,32 +16,49 @@
     </head>
     <body>
         <!-- Top Navbar -->
-    <nav class="navbar navbar-dark fixed-top bg-success p-0 shadow">
+    <nav class="my-10 navbar navbar-dark fixed-top bg-success p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="donate.php">GoFunding</a>
     </nav>
+    <br><br>
 
     <?php 
+        include('dbconnection.php');
         $sql = "SELECT * FROM acceptrequest_tb";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
     ?>
-    <div class="col-sm-9 mb-5">
-        <div class="card mt-5 mx-5">';
-        <div class="card-header">';
-        Request ID : '. $row['request_id'];
-        </div>';
-        <div class="card-body">;
-        <h5 class="card-title">fdsfsf</h5>';
-        <p class="card-text">dsfsfsd</p>';
-        <p class="card-text">fdasdfaad </p>';
-        <div class="float-right">';
- 
-        
+    <div class="col-sm-12 mb-5" style="margin-top:20px;">
 
-        </div> ;
-       </div> ;
-        </div>;
+        <div class="card mt-5  mx-20 text-light bg-success">
+
+        <div class="card-header">
+        <?php echo $row['request_info']; ?>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">
+            <?php echo $row['request_desc']; ?>
+        </h5>
+        <p class="card-text">
+            <?php echo $row['requester_name']; ?>
+        </p>
+        <p class="card-text">We need : <?php echo $row['request_amount']; ?>    
+        </p>
+        </p>
+        <p class="card-text">Date : <?php echo $row['assgin_date']; ?>    
+        </p>
+        <div class="float-right">
+            <form action="donationForm.php" method="POST">
+
+                 <input type="hidden" name="id" value="<?php echo $row['rno']; ?>">
+                 <input type="submit" class="btn btn-danger mr-3" name="view" value="DONATE">
+
+                 </form>
+        </div> 
+       </div> 
+
+        </div>
+
     </div>
 
     <?php

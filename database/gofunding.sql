@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2021 at 03:36 PM
+-- Generation Time: Aug 15, 2021 at 11:19 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -47,6 +47,19 @@ CREATE TABLE `acceptrequest_tb` (
   `vname` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `acceptrequest_tb`
+--
+
+INSERT INTO `acceptrequest_tb` (`rno`, `uid`, `request_id`, `request_info`, `request_desc`, `requester_name`, `requester_add1`, `requester_add2`, `requester_city`, `requester_state`, `requester_zip`, `requester_email`, `requester_mobile`, `request_amount`, `assgin_date`, `vid`, `vname`) VALUES
+(1, 0, 1, 'information -4', 'your money can save someone life', 'Shaheen', 0, 0, 'e', 'none', 34343, 'e@gamil.com', 983294823984, 0, '0000-00-00', 0, ''),
+(2, 0, 1, 'information -4', 'your money can save someone life', 'Shaheen', 0, 0, 'e', 'none', 34343, 'e@gamil.com', 983294823984, 0, '0000-00-00', 0, ''),
+(3, 0, 1, 'request 6', 'your money can save someone life', 'e', 0, 0, 'dhaka', 'no_state', 3244234, 'e@gamil.com', 39842348, 0, '2021-08-01', 1, 'Shaheen Alam Jony'),
+(4, 7, 1, 'request after add id and amount', 'decription', 'user', 0, 0, 'dhaka', 'no_state', 3244234, 'user@gmail.com', 983294823984, 2000, '2021-08-16', 1, 'Shaheen Alam Jony'),
+(5, 0, 1, 'request 6', 'your money can save someone life', 'e', 0, 0, 'dhaka', 'no_state', 3244234, 'e@gamil.com', 39842348, 0, '2021-08-16', 1, 'Shaheen Alam Jony'),
+(6, 7, 1, 'request after add id and amount', 'decription', 'user', 0, 0, 'dhaka', 'no_state', 3244234, 'user@gmail.com', 983294823984, 2000, '0000-00-00', 1, 'Shaheen Alam Jony'),
+(7, 7, 5, 'request  demo', 'your money can save someone life', 'user', 0, 0, 'dhaka', 'no_state', 3244234, 'user@gmail.com', 39842348, 50000, '2021-08-01', 5, 'employee');
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +82,27 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`aid`, `aName`, `aUsername`, `aEmail`, `aGender`, `aPassword`, `role`) VALUES
 (1, 'Shaheen Alam Jony', 'shaheen', 'shaheen@gmail.com', 'Male', 'shaheen', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donate`
+--
+
+CREATE TABLE `donate` (
+  `donation_id` int(11) NOT NULL,
+  `request_no` int(11) NOT NULL,
+  `donar_email` varchar(55) NOT NULL,
+  `donar_name` varchar(55) NOT NULL,
+  `d_ammount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `donate`
+--
+
+INSERT INTO `donate` (`donation_id`, `request_no`, `donar_email`, `donar_name`, `d_ammount`) VALUES
+(1, 4, 'shaheen alam jony', 'user@gmail.com', 100000);
 
 -- --------------------------------------------------------
 
@@ -146,7 +180,6 @@ CREATE TABLE `submitrequest_tb` (
 --
 
 INSERT INTO `submitrequest_tb` (`request_id`, `request_info`, `request_desc`, `requester_name`, `requester_add1`, `requester_add2`, `requester_city`, `requester_state`, `requester_zip`, `requester_email`, `requester_mobile`, `requester_date`, `requester_id`, `requester_amount`) VALUES
-(4, 'information -4', 'your money can save someone life', 'Shaheen', 'hourse no 1', 'e', 'e', 'none', 34343, 'e@gamil.com', 983294823984, '2021-07-25', 0, 0),
 (7, 'request 6', 'your money can save someone life', 'e', 'hourse no 1', 'mirzapur', 'dhaka', 'no_state', 3244234, 'e@gamil.com', 39842348, '2021-08-01', 0, 0),
 (8, 'request after add id and amount', 'decription', 'user', 'hourse no 1', 'mirzapur', 'dhaka', 'no_state', 3244234, 'user@gmail.com', 983294823984, '2021-08-01', 7, 2000);
 
@@ -172,9 +205,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`uid`, `uName`, `uUsername`, `uEmail`, `uGender`, `uPassword`, `role`) VALUES
 (1, 'shaheen alam jony', 'shaheenalamjony', 'shaheenalamjony@gmail.com', 'Male', 'shaheenalamjony', 3),
-(2, 'nazmul hasan', 'nazmul', 'nazmul@gmail.com', 'Male', 'nazmul', 3),
-(7, 'user', 'user', 'user@gmail.com', '1', 'user', 3),
-(11, 'shaheen', 'shaheen', 'shaheen@gamil.com', 'Male', '8iYGL3eRrePbu2E', 3);
+(7, 'user', 'user', 'user@gmail.com', '1', 'user', 3);
 
 --
 -- Indexes for dumped tables
@@ -192,6 +223,12 @@ ALTER TABLE `acceptrequest_tb`
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`aid`),
   ADD UNIQUE KEY `aUsername` (`aUsername`);
+
+--
+-- Indexes for table `donate`
+--
+ALTER TABLE `donate`
+  ADD PRIMARY KEY (`donation_id`);
 
 --
 -- Indexes for table `employee`
@@ -227,13 +264,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `acceptrequest_tb`
 --
 ALTER TABLE `acceptrequest_tb`
-  MODIFY `rno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `donate`
+--
+ALTER TABLE `donate`
+  MODIFY `donation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -251,7 +294,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `submitrequest_tb`
 --
 ALTER TABLE `submitrequest_tb`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`

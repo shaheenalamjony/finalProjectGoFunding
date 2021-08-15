@@ -32,54 +32,76 @@ $result = $conn->query($sql);
       }
     }
    }
+
+   $sql = "SELECT max(uid) from user";
+   $result = $conn->query($sql);
+   $row=mysqli_fetch_row($result);
+   $uid = $row[0];
+
+   $sql = "SELECT max(eid) from employee";
+   $result = $conn->query($sql);
+   $row=mysqli_fetch_row($result);
+   $eid = $row[0];
+
+   $sql = "SELECT max(request_id) from submitrequest_tb";
+   $result = $conn->query($sql);
+   $row=mysqli_fetch_row($result);
+   $request = $row[0];
+
+   $sql = "SELECT max(rno) from acceptrequest_tb";
+   $result = $conn->query($sql);
+   $row=mysqli_fetch_row($result);
+   $ar = $row[0];
+
+   
 ?>
 
 <div class="col-sm-9 col-md-10">
   <div class="row mx-5 text-center">
     <div class="col-sm-3 mt-5">
       <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-        <div class="card-header">Requests Received</div>
+        <div class="card-header"> No. of total User</div>
         <div class="card-body">
           <h4 class="card-title">
             <a href=""></a>
           </h4>
-          <a class="btn text-white" href="request.php">View</a>
+          <?php echo $uid; ?>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3 mt-5">
       <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Assigned Work</div>
+        <div class="card-header">No of total Employee</div>
         <div class="card-body">
           <h4 class="card-title">
             
           </h4>
-          <a class="btn text-white" href="work.php">View</a>
+          <?php echo $eid; ?>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3 mt-5">
       <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">No. of Technician</div>
+        <div class="card-header">---Total Request--</div>
         <div class="card-body">
           <h4 class="card-title">
             
           </h4>
-          <a class="btn text-white" href="technician.php">View</a>
+           <?php echo $request; ?>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3 mt-5">
       <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">No. of Technician</div>
+        <div class="card-header">Accepted Request</div>
         <div class="card-body">
           <h4 class="card-title">
             
           </h4>
-          <a class="btn text-white" href="technician.php">View</a>
+             <?php echo $ar; ?>
         </div>
       </div>
     </div>

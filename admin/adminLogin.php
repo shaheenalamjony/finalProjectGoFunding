@@ -70,7 +70,7 @@ if(!isset($_SESSION['is_adminLogin'])){
           <?php if(isset($msg)) {echo $msg; } ?>
         </form>
 
-        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../homepage.html">Back
+        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../index.html">Back
             to Home</a></div>
       </div>
     </div>

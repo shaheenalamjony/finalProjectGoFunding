@@ -60,12 +60,12 @@
        </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
        <a class="nav-link <?php if(PAGE == 'requesterDetails') { echo 'active'; } ?>" href="requesterDetails.php">
         <i class="fab fa-teamspeak"></i>
         Requester Details
        </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
        <a class="nav-link <?php if(PAGE == 'changePassword') { echo 'active'; } ?>" href="changePassword.php">

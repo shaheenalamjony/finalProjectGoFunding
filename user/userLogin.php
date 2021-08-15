@@ -13,7 +13,7 @@ if(!isset($_SESSION['is_login'])){
       $_SESSION['is_login'] = true;
       $_SESSION['email'] = $email;
       // $_SESSION['uid']=$id;
-      header("location:profileUpdate.php");
+      header("location:userHomePage.php");
     }else{
       $msg = '<div class="alert alert-warning mt-2" role="alert"> Enter Valid Email and Password </div>';
     }
@@ -72,7 +72,7 @@ if(!isset($_SESSION['is_login'])){
           <?php if(isset($msg)) {echo $msg; } ?>
         </form>
 
-        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../homepage.html">Back
+        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../index.html">Back
             to Home</a></div>
       </div>
     </div>

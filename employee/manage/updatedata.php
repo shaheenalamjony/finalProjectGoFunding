@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if($_SESSION['is_employeeLogin']){
+    $email = $_SESSION['email'];
+}else{
+  header("location:employeeLogin.php");
+}
 
 
 $id=$_POST['id'];

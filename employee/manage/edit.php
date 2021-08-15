@@ -1,4 +1,11 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+session_start();
+if($_SESSION['is_employeeLogin']){
+    $email = $_SESSION['email'];
+}else{
+  header("location:employeeLogin.php");
+}
+?>
 
 <div id="main-content">
     <h2>Update Record</h2>

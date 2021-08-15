@@ -47,9 +47,9 @@
       </li>
 
       <li class="nav-item">
-       <a class="nav-link <?php if(PAGE == 'requestStatus') { echo 'active'; } ?>" href="requestStatus.php">
+       <a class="nav-link <?php if(PAGE == 'requestStatus') { echo 'active'; } ?>" href="userHomePage.php">
         <i class="fas fa-database"></i>
-        Request Status
+        Back to Home Page
        </a>
       </li>
 

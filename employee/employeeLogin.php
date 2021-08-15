@@ -48,7 +48,7 @@ if(!isset($_SESSION['is_employeeLogin'])){
 <body>
   <div class="mb-3 text-center mt-5" style="font-size: 30px;">
     
-    <span>Admin Login</span>
+    <span>Employee Login</span>
   </div>
   
   <div class="container-fluid mb-5">
@@ -70,7 +70,7 @@ if(!isset($_SESSION['is_employeeLogin'])){
           <?php if(isset($msg)) {echo $msg; } ?>
         </form>
 
-        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../homepage.html">Back
+        <div class="text-center"><a class="btn btn-info mt-3 shadow-sm font-weight-bold" href="../index.html">Back
             to Home</a></div>
       </div>
     </div>

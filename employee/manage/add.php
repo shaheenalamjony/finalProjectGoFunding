@@ -3,6 +3,7 @@ include '../dbconnection.php';
 
 
 
+
 if(isset($_REQUEST['signup'])){
       if(($_REQUEST['name'] == "") || ($_REQUEST['username'] == "") || ($_REQUEST['email'] == "") || ($_REQUEST['gender'] == "") || ($_REQUEST['password'] == "")){
           $regmsg = '<div class="alert alert-warning mt-2" role="alert"> All Fields are Required </div>';

@@ -53,12 +53,12 @@
        </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
        <a class="nav-link <?php if(PAGE == 'fundingPost') { echo 'active'; } ?>" href="fundingPost.php">
         <i class="fab fa-teamspeak"></i>
         Funding Post
        </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
        <a class="nav-link <?php if(PAGE == 'changePassword') { echo 'active'; } ?>" href="changePassword.php">
